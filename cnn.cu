@@ -22,6 +22,7 @@ void CNN::vector_init() {
     // Grab the first 5 onto host
     thrust::host_vector<int> H(D.begin(), D.begin() + 5);
 
+    // Print those
     for (const auto& x : H) {
         std::cout << x << " ";
     }
