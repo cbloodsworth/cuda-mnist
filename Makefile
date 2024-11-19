@@ -21,25 +21,24 @@ CMAKE_FLAGS =
 
 # Default entrypoint
 .PHONY: all
-all: build run
+all: run
 
-# Build the stuff
-.PHONY: build
-build:
+# Build the executable
+$(BUILD_DIR)/$(EXECUTABLE): 
 	mkdir -p $(BUILD_DIR)
 	cd $(BUILD_DIR) && cmake .. $(CMAKE_FLAGS)
 	cd $(BUILD_DIR) && cmake --build .
 
-# Run
+# Run the program
 .PHONY: run
-run: build
+run: $(BUILD_DIR)/$(EXECUTABLE)
 	$(BUILD_DIR)/$(EXECUTABLE)
 
 # Clean up
 .PHONY: clean
 clean:
-	rm $(BUILD_DIR) -fr
+	rm -rf $(BUILD_DIR)
 
 # Rebuild from scratch
 .PHONY: rebuild
-rebuild: clean build
+rebuild: clean $(EXECUTABLE)
