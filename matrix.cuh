@@ -41,7 +41,7 @@ public:
     }
 
     /**
-     * @brief Matrix transposition.
+     * @brief Transposes this matrix.
      */
     void T();
 
@@ -51,8 +51,10 @@ public:
      * @param kernel Kernel to slide over the matrix.
      * @param mode   Determines how the matrix borders are handled. Default is 'reflect'.
      * @param cval   Value to fill past edges of input if `mode` is 'constant'.
+     *
+     * @returns New matrix depicting the convolution.
      */
-    void convolve(const Matrix2D& kernel, ConvolutionMode mode=reflect, type cval=0);
+    Matrix2D convolve(const Matrix2D& kernel, ConvolutionMode mode=reflect, type cval=0);
 
 private:
     std::vector<std::vector<type>> data;
