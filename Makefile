@@ -15,7 +15,7 @@
 #
 
 # Some environment variables
-BUILD_DIR = build
+BUILD_DIR = bld
 EXECUTABLE = Main
 CMAKE_FLAGS = 
 
@@ -23,9 +23,11 @@ CMAKE_FLAGS =
 .PHONY: all
 all: run
 
-# Build the executable
-$(BUILD_DIR)/$(EXECUTABLE): 
+$(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
+
+# Build the executable
+$(BUILD_DIR)/$(EXECUTABLE): $(BUILD_DIR)
 	cd $(BUILD_DIR) && cmake .. $(CMAKE_FLAGS)
 	cd $(BUILD_DIR) && cmake --build .
 
