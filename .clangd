@@ -3,6 +3,7 @@ CompileFlags:
     - '-std=c++20'
     - '--no-cuda-version-check'
   Remove: 
+    - '--options-file'
     - '-forward-unknown-to-host-compiler'
     - '--generate-code=arch=compute_75,code=[compute_75,sm_75]'
     - '-rdc=true'
