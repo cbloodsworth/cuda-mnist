@@ -16,5 +16,5 @@ class Layer {
         
     public:
         virtual Matrix2D forwardPass(Matrix2D &layer) = 0;
-        virtual Matrix2D backwardPass(Matrix2 &layer) = 0;
+        virtual Matrix2D backwardPass(Matrix2D &layer) = 0;
 }
