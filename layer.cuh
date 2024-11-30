@@ -3,23 +3,18 @@
 using namespace matrix;
 
 /**
-* @brief Abstract base class for layer class
- */
+* @brief Abstract base class for all layers.
+* 
+* This class defines the common interface for all layers, with methods for
+* the forward and backward passes. The `layerData` matrix holds data needed
+* for gradient calculation such as input matricies, gradients, or indicies
+* depending on the layer type. 
+*/
 class Layer {
-    public: 
-        virtual ~Layer() {};
-        virtual Matrix2D forwardPass(Matrix2D &layer) = 0; 
-        virtual Matrix2D backwardPass(Matrix2D &layer) = 0;
-}
-
-/**
-* @brief Abstract base class for all gradient calculating layers
- */
-class GradientLayer : public Layer {
     protected:
-        Matrix2D inputLayer;
+        Matrix2D layerData;
         
     public:
         virtual Matrix2D forwardPass(Matrix2D &layer) = 0;
-        virtual Matrix2D backwardPass(Matrix2d &layer) = 0;
+        virtual Matrix2D backwardPass(Matrix2 &layer) = 0;
 }
